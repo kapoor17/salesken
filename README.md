@@ -19,8 +19,3 @@
 </ol>
 
 <p>The Quiz is cited from <a href="https://www.geeksforgeeks.org/react-js-quiz-set-1/">GeeksForGeeks</a></p>
-
-<h4>TO do</h4>
-<ol>
- <li>seamless page flow with authorisation and authentication</li>
-</ol>
