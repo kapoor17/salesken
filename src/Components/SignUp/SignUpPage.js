@@ -1,28 +1,28 @@
 import React from "react";
 
-export function SignUp(){
+export function SignUpPage(){
 
-    const [login, setLogin] = React.useState({
+    const [signUp, setSignUp] = React.useState({
         "email" : "",
         "password" : "",
         "confirm-password" : ""
     })
 
     React.useEffect(()=>{
-    },[login])
+    },[signUp])
 
     function handleSubmit(e){
         e.preventDefault();
-        if(login["confirm-password"] !== login.password) {
+        if(signUp["confirm-password"] !== signUp.password) {
             console.log("pass not same")
             return
         }
-        localStorage.setItem(login.email,login.password);
+        localStorage.setItem(signUp.email,signUp.password);
     }
 
     function handleChange({target}){
         const {value, name} = target;
-        setLogin(prev => {
+        setSignUp(prev => {
             return {
                 ...prev,
                 [name] : value
@@ -41,7 +41,7 @@ export function SignUp(){
                         id="email" 
                         placeholder="Enter Email..."
                         onChange={handleChange} 
-                        value={login.email} 
+                        value={signUp.email} 
                         required
                     />
                 </div>
@@ -53,7 +53,7 @@ export function SignUp(){
                         placeholder="Enter Password..."
                         id="password" 
                         onChange={handleChange} 
-                        value={login.password} 
+                        value={signUp.password} 
                         required
                     />
                     <input name = "confirm-password" 
@@ -61,12 +61,12 @@ export function SignUp(){
                         placeholder="Confirm Password..."
                         id="confirm-password" 
                         onChange={handleChange} 
-                        value={login.confirmPass} 
+                        value={signUp.confirmPass} 
                         required
                     />
                 </div>
 
-                <input type="submit" className="sign-up--submit" />
+                <button type="submit" className="sign-up--submit">Sign Up</button>
             </form>
         </div>
     )

@@ -14,7 +14,7 @@ body{
 
 input{
   padding: 0.75em ;
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid black;
 }
 
@@ -26,9 +26,8 @@ input[type="submit"]{
   color: white;
   background-color: teal;
   padding: 0.5em 1em;
-  margin-top: 0.5em;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .App{
@@ -60,9 +59,19 @@ input[type="submit"]{
 
 .email,
 .password{
-  gap: 0.25em;
+  gap: 0.5em;
 }
 
 .login--submit, .sign-up--submit{
   width: 100%;
+}
+
+.sign-up-redirect{
+  margin: 0 auto;
+  font-size: 0.75rem ;
+}
+
+.sign-up-redirect > a{
+  text-decoration: underline;
+  cursor: pointer;
 }
