@@ -21,4 +21,7 @@
 <h4>TO do</h4>
 <ol>
  <li>Add confirm pass functionality</li>
+ <li>password not correct while logging in and signing up funcitonality</li>
+ <li> going back logs you out of the quiz </li>
+ <li>sign up success and login success page</li>
 </ol>

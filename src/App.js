@@ -2,12 +2,14 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { SignUpPage as SignUp } from './Components/SignUp/SignUpPage';
 import { LoginPage as Login } from './Components/Login/LoginPage';
+import { Quiz } from './Components/Quiz/Quiz';
 
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Quiz/>}/>
       <Route path="/" element={<Login/>}/>
-      <Route path="/signup" element={<SignUp/>}/>
+      <Route path="/signup" element={<SignUp/>}/> 
     </Routes>
   );
 }

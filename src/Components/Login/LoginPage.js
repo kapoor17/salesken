@@ -7,8 +7,7 @@ export function LoginPage(){
 
     const [login, setLogin] = React.useState({
         "email" : "",
-        "password" : "",
-        "confirm-password" : ""
+        "password" : ""
     })
 
     React.useEffect(()=>{
@@ -16,11 +15,11 @@ export function LoginPage(){
 
     function handleSubmit(e){
         e.preventDefault();
-        if(login["confirm-password"] !== login.password) {
-            console.log("pass not same")
-            return
+        if(!localStorage.getItem(login.email)){
+            alert("user doesnt exist please sign up");
+        }else{
+            localStorage.getItem(login.email) === login.password ? navigate("/quiz") : alert("pass not same");
         }
-        localStorage.setItem(login.email,login.password);
     }
 
     function handleChange({target}){
@@ -63,7 +62,7 @@ export function LoginPage(){
 
                 <button type="submit" className="login--submit">Login</button>
                 
-                <p className="sign-up-redirect">Need an Account? <a onClick={()=> navigate('/signup')}>SIGN UP</a> </p>
+                <p className="sign-up-redirect">Need an Account? <a href= "" onClick={()=> navigate('/signup')}>SIGN UP</a> </p>
             </form>
         </div>
     )

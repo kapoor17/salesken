@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function SignUpPage(){
+
+    const navigate = useNavigate();
+    const confirmPass = useRef();
 
     const [signUp, setSignUp] = React.useState({
         "email" : "",
@@ -14,10 +18,12 @@ export function SignUpPage(){
     function handleSubmit(e){
         e.preventDefault();
         if(signUp["confirm-password"] !== signUp.password) {
-            console.log("pass not same")
-            return
+            // handle confirm pass functionality
+            alert("password not same");
+        }else{
+            localStorage.setItem(signUp.email,signUp.password);
+            navigate("/");
         }
-        localStorage.setItem(signUp.email,signUp.password);
     }
 
     function handleChange({target}){
@@ -62,6 +68,7 @@ export function SignUpPage(){
                         id="confirm-password" 
                         onChange={handleChange} 
                         value={signUp.confirmPass} 
+                        ref={confirmPass}
                         required
                     />
                 </div>
