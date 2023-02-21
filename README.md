@@ -17,3 +17,8 @@
     <li>Against each question, <strong>store the question and answer in local storage</strong></li>
     <li>display the report card at the end of the quiz.</li>
 </ol>
+
+<h4>TO do</h4>
+<ol>
+ <li>Add confirm pass functionality</li>
+</ol>
