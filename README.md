@@ -18,10 +18,9 @@
     <li>display the report card at the end of the quiz.</li>
 </ol>
 
-<p>The Quiz is cited from <a href="https://www.geeksforgeeks.org/react-js-quiz-set-1/">here</a></p>
+<p>The Quiz is cited from <a href="https://www.geeksforgeeks.org/react-js-quiz-set-1/">GeeksForGeeks</a></p>
 
 <h4>TO do</h4>
 <ol>
  <li>seamless page flow with authorisation and authentication</li>
- <li>local storage setting of answers</li>
 </ol>
