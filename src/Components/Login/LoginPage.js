@@ -1,24 +1,27 @@
-import React from "react";  
-import { SignUpPage as SignUp } from "../SignUp/SignUpPage";
+import React, {useState} from "react";  
 import { useNavigate } from "react-router-dom"; 
 
-export function LoginPage(){
+export function LoginPage({setLoggedIn}){
     const navigate = useNavigate();
 
-    const [login, setLogin] = React.useState({
+    const [login, setLogin] = useState({
         "email" : "",
         "password" : ""
     })
 
-    React.useEffect(()=>{
-    },[login])
+    const [formState, setFormState] = useState("");
 
     function handleSubmit(e){
         e.preventDefault();
         if(!localStorage.getItem(login.email)){
-            alert("user doesnt exist please sign up");
+            setFormState("User does not exist! Please Sign-Up.")
         }else{
-            localStorage.getItem(login.email) === login.password ? navigate("/quiz") : alert("pass not same");
+            if(localStorage.getItem(login.email) === login.password ){
+                setLoggedIn();
+                navigate("/quiz")
+            }else{
+                setFormState("Password doen not match! Try again.");
+            }
         }
     }
 
@@ -34,6 +37,7 @@ export function LoginPage(){
 
     return (
         <div className="login">
+            <div className="form-state">{formState}</div>
             <form className="login--form" action=""  onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <div className="email">

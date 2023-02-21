@@ -1,7 +1,9 @@
 import React from 'react';
 import questions from "./questions.json";
+import { useNavigate } from 'react-router-dom';
 
-export function Quiz() {
+export function Quiz({loggedIn}) {
+  const navigate = useNavigate();
   const [question, setQuestion] = React.useState(questions);
   const [currentQuesIndex, setCurrentQuesIndex] = React.useState(0);
   const [choosenAnswers, setChoosenAnswers] = React.useState([]);
@@ -18,7 +20,8 @@ export function Quiz() {
 
   return (
     <div className='quiz-container'>
-        <h1>{currentQues.question}</h1>
+        {loggedIn ?
+        <><h1>{currentQues.question}</h1>
         <div className='answers'>
             {currentQues.answers.map((ans,ansIndex) => {
                 let className = "answer"
@@ -54,7 +57,12 @@ export function Quiz() {
             onClick={()=>setCurrentQuesIndex(prev => prev-1)}
         >
                 Back
-        </button>
+        </button></> : 
+        <>
+            <h1>Please LogIn to take the Quiz</h1>
+            <button onClick={()=> navigate("/")}>LogIn</button>
+        </>
+        }
     </div>
   )
 

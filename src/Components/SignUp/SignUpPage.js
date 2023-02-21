@@ -1,10 +1,9 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function SignUpPage(){
 
     const navigate = useNavigate();
-    const signInButton = useRef();
 
     const [signUp, setSignUp] = React.useState({
         "email" : "",
@@ -12,22 +11,24 @@ export function SignUpPage(){
         "confirm-password" : ""
     })
 
+    const [formState, setFormState] = useState("");
+
     React.useEffect(()=>{
     },[signUp])
 
     function handleSubmit(e){
         e.preventDefault();
         if(localStorage.getItem(signUp.email)){
-            alert("usernameExist");
+            setFormState("User already exists! Please try another E-Mail")
         }else if(signUp["confirm-password"] !== signUp.password) {
-            alert("password not same");
+            setFormState("Password does not match!")
         }else{
             localStorage.setItem(signUp.email,signUp.password);
-            setTimeout(()=>{
-                signInButton.disabled = true;
-                navigate("/");
-            },2000)
+            navigate("/");
         }
+        setTimeout(()=>{
+            setFormState("");
+        },2000)
     }
 
     function handleChange({target}){
@@ -42,6 +43,7 @@ export function SignUpPage(){
 
     return (
         <div className="sign-up">
+            <div className="form-state">{formState}</div>
             <form className="sign-up--form" action="" onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
                 <div className="email">
@@ -76,7 +78,7 @@ export function SignUpPage(){
                     />
                 </div>
 
-                <button type="submit" className="sign-up--submit" ref={signInButton}>Sign Up</button>
+                <button type="submit" className="sign-up--submit">Sign Up</button>
             </form>
         </div>
     )
