@@ -33,8 +33,8 @@ export function LoginPage(){
     }
 
     return (
-        <div className="login" onSubmit={handleSubmit}>
-            <form className="login--form" action="">
+        <div className="login">
+            <form className="login--form" action=""  onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <div className="email">
                     <label htmlFor="email">Email</label>

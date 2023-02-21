@@ -7,8 +7,8 @@ import { Quiz } from './Components/Quiz/Quiz';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Quiz/>}/>
       <Route path="/" element={<Login/>}/>
+      <Route path="/quiz" element={<Quiz/>}/>
       <Route path="/signup" element={<SignUp/>}/> 
     </Routes>
   );

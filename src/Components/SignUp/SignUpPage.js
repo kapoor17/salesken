@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export function SignUpPage(){
 
     const navigate = useNavigate();
-    const confirmPass = useRef();
+    const signInButton = useRef();
 
     const [signUp, setSignUp] = React.useState({
         "email" : "",
@@ -17,12 +17,16 @@ export function SignUpPage(){
 
     function handleSubmit(e){
         e.preventDefault();
-        if(signUp["confirm-password"] !== signUp.password) {
-            // handle confirm pass functionality
+        if(localStorage.getItem(signUp.email)){
+            alert("usernameExist");
+        }else if(signUp["confirm-password"] !== signUp.password) {
             alert("password not same");
         }else{
             localStorage.setItem(signUp.email,signUp.password);
-            navigate("/");
+            setTimeout(()=>{
+                signInButton.disabled = true;
+                navigate("/");
+            },2000)
         }
     }
 
@@ -37,8 +41,8 @@ export function SignUpPage(){
     }
 
     return (
-        <div className="sign-up" onSubmit={handleSubmit}>
-            <form className="sign-up--form" action="">
+        <div className="sign-up">
+            <form className="sign-up--form" action="" onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
                 <div className="email">
                     <label htmlFor="email">Email</label>
@@ -67,13 +71,12 @@ export function SignUpPage(){
                         placeholder="Confirm Password..."
                         id="confirm-password" 
                         onChange={handleChange} 
-                        value={signUp.confirmPass} 
-                        ref={confirmPass}
+                        value={signUp.confirmPass}
                         required
                     />
                 </div>
 
-                <button type="submit" className="sign-up--submit">Sign Up</button>
+                <button type="submit" className="sign-up--submit" ref={signInButton}>Sign Up</button>
             </form>
         </div>
     )
