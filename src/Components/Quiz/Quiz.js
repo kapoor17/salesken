@@ -94,17 +94,18 @@ export function QuizContainer({setFinished}) {
 
 export function Result({setFinished}) {
     const navigate = useNavigate();
-    const [score, setScore] = useState(0)
+    // const [score, setScore] = useState(0)
+    const score = useRef(0);
 
-    useEffect(()=>{
-        const nodes = document.querySelectorAll("td")
-        nodes.forEach(node => node.style.color === "green" && setScore(prev => prev + 1))
-    },[])
+    // useEffect(()=>{
+    //     const nodes = document.querySelectorAll("td")
+    //     nodes.forEach(node => node.style.color === "green" && setScore(prev => prev + 1))
+    // },[])
 
     return (
         <div className='result-container'>
             <table id="result">
-                <caption><h1 style={{marginBottom:'1rem'}}>Result : {score/2}/10</h1></caption>
+                <caption><h1 style={{marginBottom:'1rem'}}>Result : {score.current}/10</h1></caption>
                 <thead>
                     <tr>
                         <th scope='col'>Your Answer</th>
@@ -116,6 +117,7 @@ export function Result({setFinished}) {
                         let correctAns = ques.answers[ques.correctAnswer];
                         let yourAnswer = localStorage.getItem(index);
                         let color = yourAnswer != correctAns  ? "red" : "green"
+                        if(color === "green") score.current = score.current + 1;
                         let style = {color : color}
                         return (
                             <tr>
