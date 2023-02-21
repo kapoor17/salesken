@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import "./styles.css"
 import { useNavigate } from "react-router-dom";
 
-export function SignUpPage(){
-
+export function SignUpPage({loggedIn}){
     const navigate = useNavigate();
-
     const [signUp, setSignUp] = React.useState({
         "email" : "",
         "password" : "",
@@ -12,9 +11,6 @@ export function SignUpPage(){
     })
 
     const [formState, setFormState] = useState("");
-
-    React.useEffect(()=>{
-    },[signUp])
 
     function handleSubmit(e){
         e.preventDefault();
@@ -42,9 +38,9 @@ export function SignUpPage(){
     }
 
     return (
-        <div className="sign-up">
+        <div className="form-container">
             <div className="form-state">{formState}</div>
-            <form className="sign-up--form" action="" onSubmit={handleSubmit}>
+            <form className="form" action="" onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
                 <div className="email">
                     <label htmlFor="email">Email</label>
@@ -78,7 +74,8 @@ export function SignUpPage(){
                     />
                 </div>
 
-                <button type="submit" className="sign-up--submit">Sign Up</button>
+                <button type="submit" className="form-submit">Sign Up</button>
+                <p className="form-redirect">Already Signed Up? <a href= "" onClick={()=> navigate('/')}>LOG IN</a> </p>
             </form>
         </div>
     )

@@ -18,12 +18,10 @@
     <li>display the report card at the end of the quiz.</li>
 </ol>
 
+<p>The Quiz is cited from <a href="https://www.geeksforgeeks.org/react-js-quiz-set-1/">here</a></p>
+
 <h4>TO do</h4>
 <ol>
- <li>Add confirm pass functionality</li>
- <li>password not correct while logging in and signing up funcitonality</li>
- <li>going back logs you out of the quiz </li>
- <li>sign up success and login success page</li>
  <li>seamless page flow with authorisation and authentication</li>
  <li>local storage setting of answers</li>
 </ol>

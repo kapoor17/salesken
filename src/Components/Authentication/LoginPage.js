@@ -1,4 +1,5 @@
-import React, {useState} from "react";  
+import React, {useState, useEffect} from "react";  
+import "./styles.css"
 import { useNavigate } from "react-router-dom"; 
 
 export function LoginPage({setLoggedIn}){
@@ -9,6 +10,10 @@ export function LoginPage({setLoggedIn}){
         "password" : ""
     })
 
+    useEffect(()=>{
+        setLoggedIn(false);
+    },[])
+
     const [formState, setFormState] = useState("");
 
     function handleSubmit(e){
@@ -17,7 +22,7 @@ export function LoginPage({setLoggedIn}){
             setFormState("User does not exist! Please Sign-Up.")
         }else{
             if(localStorage.getItem(login.email) === login.password ){
-                setLoggedIn();
+                setLoggedIn(true);
                 navigate("/quiz")
             }else{
                 setFormState("Password doen not match! Try again.");
@@ -36,9 +41,9 @@ export function LoginPage({setLoggedIn}){
     }
 
     return (
-        <div className="login">
+        <div className="form-container">
             <div className="form-state">{formState}</div>
-            <form className="login--form" action=""  onSubmit={handleSubmit}>
+            <form className="form" action=""  onSubmit={handleSubmit}>
                 <h1>Login</h1>
                 <div className="email">
                     <label htmlFor="email">Email</label>
@@ -64,9 +69,9 @@ export function LoginPage({setLoggedIn}){
                     />
                 </div>
 
-                <button type="submit" className="login--submit">Login</button>
+                <button type="submit" className="form-submit">Login</button>
                 
-                <p className="sign-up-redirect">Need an Account? <a href= "" onClick={()=> navigate('/signup')}>SIGN UP</a> </p>
+                <p className="form-redirect">Need an Account? <a href= "" onClick={()=> navigate('/signup')}>SIGN UP</a> </p>
             </form>
         </div>
     )

@@ -1,17 +1,99 @@
 [
     {
         "question":"Which of the following is a built-in React hook?",
-        "answers":["useState","useFetch","useLocalStorage","useTimeout"],
+        "answers":[
+            "useState",
+            "useFetch",
+            "useLocalStorage",
+            "useTimeout"],
         "correctAnswer":0
     },
     {
         "question":"What is the correct order of these lifecycle phases?",
-        "answers":["unmount, update, mount","mount, update, unmount","update, mount, unmount","mount, unmount, update"],
+        "answers":[
+            "unmount, update, mount",
+            "mount, update, unmount",
+            "update, mount, unmount",
+            "mount, unmount, update"],
         "correctAnswer":1
     },
     {
-        "question":"What is reconciliation?",
-        "answers":["The process of converting the virtual DOM to DOM nodes.","The process of combining two virtual DOM trees into one.","The algorithm used by React to determine which state updates to batch together.","The algorithm used by React to determine which elements changed between renders."],
-        "correctAnswer":3
+        "question":"Which of the following command is used to create react-js-app ?",
+        "answers":[
+            "npx create-react-app appname",
+            "npm install create-react-app",
+            "npx install create-react-app -g",
+            "install - l create-react-app"],
+        "correctAnswer":0
+    },
+    {
+        "question":"In React.js which one of the following is used to create a class for Inheritance ?",
+        "answers":[
+            "Create",
+            "Extends",
+            "Inherits",
+            "Delete"
+        ],
+        "correctAnswer":1
+    },
+    {
+        "question":"What is the default port number in which the application run ?",
+        "answers":[
+            "3000",
+            "5500",
+            "8080",
+            "3030"
+        ],
+        "correctAnswer":0
+    },
+    {
+        "question":"Which of the following is a way to handle data in React.js ?",
+        "answers":[
+            "State & Props",
+            "Services & Components",
+            "State & Services",
+            "State & Component"
+        ],
+        "correctAnswer":0
+    },
+    {
+        "question":"Which of the following is true regarding Babel ?",
+        "answers":[
+            "Compiler",
+            "Transpilar",
+            "Both of the above",
+            "None of the above"
+        ],
+        "correctAnswer":2
+    },
+    {
+        "question":"In React.js, how we can pass the data from one component to another in React.js ?",
+        "answers":[
+            "SetState",
+            "Render with arguments",
+            "Props",
+            "PropTypes"
+        ],
+        "correctAnswer":2
+    },
+    {
+        "question":"Which of the following is true about key props ?",
+        "answers":[
+            "Key props are used to look beauty",
+            "Key prop is a way to identify the newly added element",
+            "It is one type of attribute of HTML",
+            "It is not used in the array"
+        ],
+        "correctAnswer":1
+    },
+    {
+        "question":"What is the best definition of React.js ?",
+        "answers":[
+            "Server-side Framework",
+            "User-interface framework",
+            "A Library for building interactive interfaces",
+            "None of These"
+        ],
+        "correctAnswer":2
     }
 ]
