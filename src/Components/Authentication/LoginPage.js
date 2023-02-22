@@ -28,6 +28,9 @@ export function LoginPage({setLoggedIn}){
                 setFormState("Password doen not match! Try again.");
             }
         }
+        setTimeout(()=>{
+            setFormState("");
+        },2000)
     }
 
     function handleChange({target}){
