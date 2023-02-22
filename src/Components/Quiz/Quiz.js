@@ -29,7 +29,12 @@ export function QuizContainer({setFinished}) {
   function handleClick(questionIndex, ansIndex){
     const newArray = [...choosenAnswers];
     newArray[questionIndex] = ansIndex;
-    const correctAns = currentQues.correctAnswer
+    // const correctAns = currentQues.correctAnswer
+    if(questions[questionIndex].answers[questions[questionIndex].correctAnswer] === questions[questionIndex].answers[ansIndex]){
+        let score = localStorage.getItem("score");
+        score++;
+        localStorage.setItem("score", score);
+    }
     localStorage.setItem(currentQuesIndex, currentQues.answers[ansIndex])
     setChoosenAnswers(newArray);
   }
@@ -98,7 +103,7 @@ export function Result({setFinished}) {
     return (
         <div className='result-container'>
             <table id="result">
-                <caption><h1 style={{marginBottom:'1rem'}}>Result</h1></caption>
+                <caption><h1 style={{marginBottom:'1rem'}}>Result : {localStorage.getItem("score")}</h1></caption>
                 <thead>
                     <tr>
                         <th scope='col'>Your Answer</th>
