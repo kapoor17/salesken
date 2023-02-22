@@ -26,6 +26,10 @@ export function QuizContainer({setFinished}) {
   const [currentQuesIndex, setCurrentQuesIndex] = React.useState(0);
   const [choosenAnswers, setChoosenAnswers] = React.useState([]);
 
+  useEffect(()=>{
+    localStorage.setItem("score",0);
+  },[])
+
   function handleClick(questionIndex, ansIndex){
     const newArray = [...choosenAnswers];
     newArray[questionIndex] = ansIndex;
@@ -103,7 +107,7 @@ export function Result({setFinished}) {
     return (
         <div className='result-container'>
             <table id="result">
-                <caption><h1 style={{marginBottom:'1rem'}}>Result : {localStorage.getItem("score")}</h1></caption>
+                <caption><h1 style={{marginBottom:'1rem'}}>Result : {localStorage.getItem("score")}/{questions.length}</h1></caption>
                 <thead>
                     <tr>
                         <th scope='col'>Your Answer</th>
